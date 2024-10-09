@@ -1,0 +1,961 @@
+[
+    {
+      "fixture_id": "34184872",
+      "league": "Champions League",
+      "team_home": "Milan",
+      "team_away": "Club Brugge",
+      "fixture_url": "https://m.skybet.com/football/champions-league/milan-v-club-brugge/34184872"
+    },
+    {
+      "fixture_id": "34184822",
+      "league": "Champions League",
+      "team_home": "Monaco",
+      "team_away": "Crvena zvezda",
+      "fixture_url": "https://m.skybet.com/football/champions-league/monaco-v-crvena-zvezda/34184822"
+    },
+    {
+      "fixture_id": "34184938",
+      "league": "Champions League",
+      "team_home": "Arsenal",
+      "team_away": "Shakhtar Donetsk",
+      "fixture_url": "https://m.skybet.com/football/champions-league/arsenal-v-shakhtar-donetsk/34184938"
+    },
+    {
+      "fixture_id": "34184846",
+      "league": "Champions League",
+      "team_home": "Aston Villa",
+      "team_away": "Bologna",
+      "fixture_url": "https://m.skybet.com/football/champions-league/aston-villa-v-bologna/34184846"
+    },
+    {
+      "fixture_id": "34184813",
+      "league": "Champions League",
+      "team_home": "Girona",
+      "team_away": "Slovan Bratislava",
+      "fixture_url": "https://m.skybet.com/football/champions-league/girona-v-slovan-bratislava/34184813"
+    },
+    {
+      "fixture_id": "34184918",
+      "league": "Champions League",
+      "team_home": "Juventus",
+      "team_away": "Stuttgart",
+      "fixture_url": "https://m.skybet.com/football/champions-league/juventus-v-stuttgart/34184918"
+    },
+    {
+      "fixture_id": "34184807",
+      "league": "Champions League",
+      "team_home": "Paris St Germain",
+      "team_away": "PSV Eindhoven",
+      "fixture_url": "https://m.skybet.com/football/champions-league/paris-st-germain-v-psv-eindhoven/34184807"
+    },
+    {
+      "fixture_id": "34184860",
+      "league": "Champions League",
+      "team_home": "Real Madrid",
+      "team_away": "Dortmund",
+      "fixture_url": "https://m.skybet.com/football/champions-league/real-madrid-v-dortmund/34184860"
+    },
+    {
+      "fixture_id": "34184915",
+      "league": "Champions League",
+      "team_home": "Sturm Graz",
+      "team_away": "Sporting CP",
+      "fixture_url": "https://m.skybet.com/football/champions-league/sturm-graz-v-sporting-cp/34184915"
+    },
+    {
+      "fixture_id": "34074146",
+      "league": "Premier League",
+      "team_home": "Brighton",
+      "team_away": "Tottenham",
+      "fixture_url": "https://m.skybet.com/football/premier-league/brighton-v-tottenham/34074146"
+    },
+    {
+      "fixture_id": "34141801",
+      "league": "Sky Bet Championship",
+      "team_home": "Leeds",
+      "team_away": "Sheffield Utd",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-championship/leeds-v-sheffield-utd/34141801"
+    },
+    {
+      "fixture_id": "34107635",
+      "league": "Sky Bet League One",
+      "team_home": "Crawley",
+      "team_away": "Shrewsbury",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-league-one/crawley-v-shrewsbury/34107635"
+    },
+    {
+      "fixture_id": "34107640",
+      "league": "Sky Bet League One",
+      "team_home": "Peterborough",
+      "team_away": "Rotherham",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-league-one/peterborough-v-rotherham/34107640"
+    },
+    {
+      "fixture_id": "34079818",
+      "league": "Sky Bet League Two",
+      "team_home": "Bradford",
+      "team_away": "Newport",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-league-two/bradford-v-newport/34079818"
+    },
+    {
+      "fixture_id": "34366558",
+      "league": "EFL Trophy",
+      "team_home": "Carlisle",
+      "team_away": "Wigan",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/carlisle-v-wigan/34366558"
+    },
+    {
+      "fixture_id": "34366553",
+      "league": "EFL Trophy",
+      "team_home": "Cheltenham",
+      "team_away": "Reading",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/cheltenham-v-reading/34366553"
+    },
+    {
+      "fixture_id": "34366546",
+      "league": "EFL Trophy",
+      "team_home": "Fleetwood",
+      "team_away": "Barrow",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/fleetwood-v-barrow/34366546"
+    },
+    {
+      "fixture_id": "34366554",
+      "league": "EFL Trophy",
+      "team_home": "Leyton Orient",
+      "team_away": "Colchester",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/leyton-orient-v-colchester/34366554"
+    },
+    {
+      "fixture_id": "34366557",
+      "league": "EFL Trophy",
+      "team_home": "MK Dons",
+      "team_away": "Arsenal U21",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/mk-dons-v-arsenal-u21/34366557"
+    },
+    {
+      "fixture_id": "34366547",
+      "league": "EFL Trophy",
+      "team_home": "Morecambe",
+      "team_away": "Nottingham Forest U21",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/morecambe-v-nottingham-forest-u21/34366547"
+    },
+    {
+      "fixture_id": "34366551",
+      "league": "EFL Trophy",
+      "team_home": "Notts County",
+      "team_away": "Northampton",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/notts-county-v-northampton/34366551"
+    },
+    {
+      "fixture_id": "34366552",
+      "league": "EFL Trophy",
+      "team_home": "Peterborough",
+      "team_away": "Stevenage",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/peterborough-v-stevenage/34366552"
+    },
+    {
+      "fixture_id": "34366556",
+      "league": "EFL Trophy",
+      "team_home": "Rotherham",
+      "team_away": "Newcastle U21",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/rotherham-v-newcastle-u21/34366556"
+    },
+    {
+      "fixture_id": "34320608",
+      "league": "English National League",
+      "team_home": "Tamworth",
+      "team_away": "Gateshead",
+      "fixture_url": "https://m.skybet.com/football/english-national-league/tamworth-v-gateshead/34320608"
+    },
+    {
+      "fixture_id": "34068811",
+      "league": "Scottish Premiership",
+      "team_home": "Rangers",
+      "team_away": "St Johnstone",
+      "fixture_url": "https://m.skybet.com/football/scottish-premiership/rangers-v-st-johnstone/34068811"
+    },
+    {
+      "fixture_id": "34309065",
+      "league": "French Ligue 1",
+      "team_home": "Nice",
+      "team_away": "Paris St Germain",
+      "fixture_url": "https://m.skybet.com/football/french-ligue-1/nice-v-paris-st-germain/34309065"
+    },
+    {
+      "fixture_id": "34142142",
+      "league": "German Bundesliga",
+      "team_home": "Eintracht Frankfurt",
+      "team_away": "Bayern Munich",
+      "fixture_url": "https://m.skybet.com/football/german-bundesliga/eintracht-frankfurt-v-bayern-munich/34142142"
+    },
+    {
+      "fixture_id": "34142131",
+      "league": "German Bundesliga",
+      "team_home": "Stuttgart",
+      "team_away": "1899 Hoffenheim",
+      "fixture_url": "https://m.skybet.com/football/german-bundesliga/stuttgart-v-1899-hoffenheim/34142131"
+    },
+    {
+      "fixture_id": "34308829",
+      "league": "Italian Serie A",
+      "team_home": "Monza",
+      "team_away": "Roma",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-a/monza-v-roma/34308829"
+    },
+    {
+      "fixture_id": "34309060",
+      "league": "Italian Serie A",
+      "team_home": "Fiorentina",
+      "team_away": "Milan",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-a/fiorentina-v-milan/34309060"
+    },
+    {
+      "fixture_id": "34147651",
+      "league": "Spanish La Liga",
+      "team_home": "Sevilla",
+      "team_away": "Betis",
+      "fixture_url": "https://m.skybet.com/football/spanish-la-liga/sevilla-v-betis/34147651"
+    },
+    {
+      "fixture_id": "34147664",
+      "league": "Spanish La Liga",
+      "team_home": "Real Sociedad",
+      "team_away": "Atlético Madrid",
+      "fixture_url": "https://m.skybet.com/football/spanish-la-liga/real-sociedad-v-atletico-madrid/34147664"
+    },
+    {
+      "fixture_id": "34344530",
+      "league": "Argentine Primera B Metropolitana",
+      "team_home": "Acassuso",
+      "team_away": "Midland",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-metropolitana/acassuso-v-midland/34344530"
+    },
+    {
+      "fixture_id": "34344539",
+      "league": "Argentine Primera B Metropolitana",
+      "team_home": "Deportivo Merlo",
+      "team_away": "Deportivo Laferrere",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-metropolitana/deportivo-merlo-v-deportivo-laferrere/34344539"
+    },
+    {
+      "fixture_id": "34354935",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "Alvarado",
+      "team_away": "Estudiantes Caseros",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/alvarado-v-estudiantes-caseros/34354935"
+    },
+    {
+      "fixture_id": "34354940",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "CA Brown-Adrogue",
+      "team_away": "Mitre Santiago d. Estero",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/ca-brown-adrogue-v-mitre-santiago-d-estero/34354940"
+    },
+    {
+      "fixture_id": "34354956",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "Deportivo Madryn",
+      "team_away": "CA Defensores Unidos",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/deportivo-madryn-v-ca-defensores-unidos/34354956"
+    },
+    {
+      "fixture_id": "34354959",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "Tristan Suarez",
+      "team_away": "Arsenal",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/tristan-suarez-v-arsenal/34354959"
+    },
+    {
+      "fixture_id": "34354992",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "Gimnasia y Esgrima de Jujuy",
+      "team_away": "Quilmes AC",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/gimnasia-y-esgrima-de-jujuy-v-quilmes-ac/34354992"
+    },
+    {
+      "fixture_id": "34355053",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "CD Maipu",
+      "team_away": "CA San Miguel",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/cd-maipu-v-ca-san-miguel/34355053"
+    },
+    {
+      "fixture_id": "34355055",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "Patronato",
+      "team_away": "San Martin-Tucumán",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/patronato-v-san-martin-tucuman/34355055"
+    },
+    {
+      "fixture_id": "34355261",
+      "league": "Argentine Primera B Nacional",
+      "team_home": "Atlético de Rafaela",
+      "team_away": "Atlanta",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-b-nacional/atletico-de-rafaela-v-atlanta/34355261"
+    },
+    {
+      "fixture_id": "34354934",
+      "league": "Argentine Primera Division",
+      "team_home": "Independiente",
+      "team_away": "Deportivo Riestra",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-division/independiente-v-deportivo-riestra/34354934"
+    },
+    {
+      "fixture_id": "34355015",
+      "league": "Argentine Primera Division",
+      "team_home": "Talleres",
+      "team_away": "Belgrano",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-division/talleres-v-belgrano/34355015"
+    },
+    {
+      "fixture_id": "34355351",
+      "league": "Argentine Primera Division",
+      "team_home": "Platense",
+      "team_away": "River Plate",
+      "fixture_url": "https://m.skybet.com/football/argentine-primera-division/platense-v-river-plate/34355351"
+    },
+    {
+      "fixture_id": "34349187",
+      "league": "Azerbaijani Premier League",
+      "team_home": "Sumqayıt",
+      "team_away": "Qarabag",
+      "fixture_url": "https://m.skybet.com/football/azerbaijani-premier-league/sumqayt-v-qarabag/34349187"
+    },
+    {
+      "fixture_id": "34354898",
+      "league": "Belgian First Division B",
+      "team_home": "KSK Lierse Kempenzonen",
+      "team_away": "Francs Borains",
+      "fixture_url": "https://m.skybet.com/football/belgian-first-division-b/ksk-lierse-kempenzonen-v-francs-borains/34354898"
+    },
+    {
+      "fixture_id": "34343695",
+      "league": "Belgian Jupiler League",
+      "team_home": "Club Brugge",
+      "team_away": "Union Saint-Gilloise",
+      "fixture_url": "https://m.skybet.com/football/belgian-jupiler-league/club-brugge-v-union-saint-gilloise/34343695"
+    },
+    {
+      "fixture_id": "34343867",
+      "league": "Belgian Jupiler League",
+      "team_home": "Sint-Truiden",
+      "team_away": "Gent",
+      "fixture_url": "https://m.skybet.com/football/belgian-jupiler-league/sint-truiden-v-gent/34343867"
+    },
+    {
+      "fixture_id": "34377470",
+      "league": "Brazilian Serie A",
+      "team_home": "Atlético Mineiro",
+      "team_away": "Grêmio FBPA",
+      "fixture_url": "https://m.skybet.com/football/brazilian-serie-a/atletico-mineiro-v-gremio-fbpa/34377470"
+    },
+    {
+      "fixture_id": "34315290",
+      "league": "Brazilian Serie B",
+      "team_home": "Goiás EC",
+      "team_away": "Santos FC",
+      "fixture_url": "https://m.skybet.com/football/brazilian-serie-b/goias-ec-v-santos-fc/34315290"
+    },
+    {
+      "fixture_id": "34298614",
+      "league": "Brazilian Serie B",
+      "team_home": "Sport Club do Recife",
+      "team_away": "Ceará SC",
+      "fixture_url": "https://m.skybet.com/football/brazilian-serie-b/sport-club-do-recife-v-ceara-sc/34298614"
+    },
+    {
+      "fixture_id": "34344533",
+      "league": "Colombian Categoria Primera B",
+      "team_home": "Unión Magdalena",
+      "team_away": "FC Leones",
+      "fixture_url": "https://m.skybet.com/football/colombian-categoria-primera-b/union-magdalena-v-fc-leones/34344533"
+    },
+    {
+      "fixture_id": "34355262",
+      "league": "Costa Rican Primera Division",
+      "team_home": "Santos de Guápiles",
+      "team_away": "Alajuelense",
+      "fixture_url": "https://m.skybet.com/football/costa-rican-primera-division/santos-de-guapiles-v-alajuelense/34355262"
+    },
+    {
+      "fixture_id": "34355350",
+      "league": "Costa Rican Primera Division",
+      "team_home": "Deportivo Saprissa",
+      "team_away": "Puntarenas",
+      "fixture_url": "https://m.skybet.com/football/costa-rican-primera-division/deportivo-saprissa-v-puntarenas/34355350"
+    },
+    {
+      "fixture_id": "34343696",
+      "league": "Croatian Prva HNL",
+      "team_home": "Hajduk Split",
+      "team_away": "HNK Šibenik",
+      "fixture_url": "https://m.skybet.com/football/croatian-prva-hnl/hajduk-split-v-hnk-sibenik/34343696"
+    },
+    {
+      "fixture_id": "34343698",
+      "league": "Czech First League",
+      "team_home": "SK Slavia Prague",
+      "team_away": "Sparta Prague",
+      "fixture_url": "https://m.skybet.com/football/czech-first-league/sk-slavia-prague-v-sparta-prague/34343698"
+    },
+    {
+      "fixture_id": "34349291",
+      "league": "Danish 1st Division",
+      "team_home": "Hvidovre IF",
+      "team_away": "Kolding",
+      "fixture_url": "https://m.skybet.com/football/danish-1st-division/hvidovre-if-v-kolding/34349291"
+    },
+    {
+      "fixture_id": "34354816",
+      "league": "Danish Superliga",
+      "team_home": "Brøndby IF",
+      "team_away": "FC Midtjylland",
+      "fixture_url": "https://m.skybet.com/football/danish-superliga/brndby-if-v-fc-midtjylland/34354816"
+    },
+    {
+      "fixture_id": "34354929",
+      "league": "Danish Superliga",
+      "team_home": "Silkeborg IF",
+      "team_away": "FC København",
+      "fixture_url": "https://m.skybet.com/football/danish-superliga/silkeborg-if-v-fc-kbenhavn/34354929"
+    },
+    {
+      "fixture_id": "34354931",
+      "league": "Dutch Eredivisie",
+      "team_home": "Fortuna Sittard",
+      "team_away": "AZ Alkmaar",
+      "fixture_url": "https://m.skybet.com/football/dutch-eredivisie/fortuna-sittard-v-az-alkmaar/34354931"
+    },
+    {
+      "fixture_id": "34343924",
+      "league": "Ecuadorian Serie A",
+      "team_home": "Universidad Católica",
+      "team_away": "Imbabura",
+      "fixture_url": "https://m.skybet.com/football/ecuadorian-serie-a/universidad-catolica-v-imbabura/34343924"
+    },
+    {
+      "fixture_id": "34344302",
+      "league": "Ecuadorian Serie A",
+      "team_home": "LDU Quito",
+      "team_away": "Orense SC",
+      "fixture_url": "https://m.skybet.com/football/ecuadorian-serie-a/ldu-quito-v-orense-sc/34344302"
+    },
+    {
+      "fixture_id": "34344497",
+      "league": "Ecuadorian Serie A",
+      "team_home": "Emelec",
+      "team_away": "Aucas",
+      "fixture_url": "https://m.skybet.com/football/ecuadorian-serie-a/emelec-v-aucas/34344497"
+    },
+    {
+      "fixture_id": "34366558",
+      "league": "EFL Trophy",
+      "team_home": "Carlisle",
+      "team_away": "Wigan",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/carlisle-v-wigan/34366558"
+    },
+    {
+      "fixture_id": "34366553",
+      "league": "EFL Trophy",
+      "team_home": "Cheltenham",
+      "team_away": "Reading",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/cheltenham-v-reading/34366553"
+    },
+    {
+      "fixture_id": "34366546",
+      "league": "EFL Trophy",
+      "team_home": "Fleetwood",
+      "team_away": "Barrow",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/fleetwood-v-barrow/34366546"
+    },
+    {
+      "fixture_id": "34366554",
+      "league": "EFL Trophy",
+      "team_home": "Leyton Orient",
+      "team_away": "Colchester",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/leyton-orient-v-colchester/34366554"
+    },
+    {
+      "fixture_id": "34366557",
+      "league": "EFL Trophy",
+      "team_home": "MK Dons",
+      "team_away": "Arsenal U21",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/mk-dons-v-arsenal-u21/34366557"
+    },
+    {
+      "fixture_id": "34366547",
+      "league": "EFL Trophy",
+      "team_home": "Morecambe",
+      "team_away": "Nottingham Forest U21",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/morecambe-v-nottingham-forest-u21/34366547"
+    },
+    {
+      "fixture_id": "34366551",
+      "league": "EFL Trophy",
+      "team_home": "Notts County",
+      "team_away": "Northampton",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/notts-county-v-northampton/34366551"
+    },
+    {
+      "fixture_id": "34366552",
+      "league": "EFL Trophy",
+      "team_home": "Peterborough",
+      "team_away": "Stevenage",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/peterborough-v-stevenage/34366552"
+    },
+    {
+      "fixture_id": "34366556",
+      "league": "EFL Trophy",
+      "team_home": "Rotherham",
+      "team_away": "Newcastle U21",
+      "fixture_url": "https://m.skybet.com/football/efl-trophy/rotherham-v-newcastle-u21/34366556"
+    },
+    {
+      "fixture_id": "34320608",
+      "league": "English National League",
+      "team_home": "Tamworth",
+      "team_away": "Gateshead",
+      "fixture_url": "https://m.skybet.com/football/english-national-league/tamworth-v-gateshead/34320608"
+    },
+    {
+      "fixture_id": "34354771",
+      "league": "Finnish Veikkausliga",
+      "team_home": "Helsinki",
+      "team_away": "Haka",
+      "fixture_url": "https://m.skybet.com/football/finnish-veikkausliga/helsinki-v-haka/34354771"
+    },
+    {
+      "fixture_id": "34354777",
+      "league": "Finnish Ykkosliiga",
+      "team_home": "MP Mikkelin",
+      "team_away": "KTP",
+      "fixture_url": "https://m.skybet.com/football/finnish-ykkosliiga/mp-mikkelin-v-ktp/34354777"
+    },
+    {
+      "fixture_id": "34309065",
+      "league": "French Ligue 1",
+      "team_home": "Nice",
+      "team_away": "Paris St Germain",
+      "fixture_url": "https://m.skybet.com/football/french-ligue-1/nice-v-paris-st-germain/34309065"
+    },
+    {
+      "fixture_id": "34343878",
+      "league": "German 3. Liga",
+      "team_home": "Osnabruck",
+      "team_away": "VfB Stuttgart II",
+      "fixture_url": "https://m.skybet.com/football/german-3--liga/osnabruck-v-vfb-stuttgart-ii/34343878"
+    },
+    {
+      "fixture_id": "34142142",
+      "league": "German Bundesliga",
+      "team_home": "Eintracht Frankfurt",
+      "team_away": "Bayern Munich",
+      "fixture_url": "https://m.skybet.com/football/german-bundesliga/eintracht-frankfurt-v-bayern-munich/34142142"
+    },
+    {
+      "fixture_id": "34142131",
+      "league": "German Bundesliga",
+      "team_home": "Stuttgart",
+      "team_away": "1899 Hoffenheim",
+      "fixture_url": "https://m.skybet.com/football/german-bundesliga/stuttgart-v-1899-hoffenheim/34142131"
+    },
+    {
+      "fixture_id": "34343683",
+      "league": "Greek Super League",
+      "team_home": "Levadiakos",
+      "team_away": "PAOK Thessaloniki",
+      "fixture_url": "https://m.skybet.com/football/greek-super-league/levadiakos-v-paok-thessaloniki/34343683"
+    },
+    {
+      "fixture_id": "34343877",
+      "league": "Greek Super League",
+      "team_home": "Panathinaikos",
+      "team_away": "Olympiakos",
+      "fixture_url": "https://m.skybet.com/football/greek-super-league/panathinaikos-v-olympiakos/34343877"
+    },
+    {
+      "fixture_id": "34354893",
+      "league": "Icelandic Urvalsdeild Karla",
+      "team_home": "HK",
+      "team_away": "Fylkir",
+      "fixture_url": "https://m.skybet.com/football/icelandic-urvalsdeild-karla/hk-v-fylkir/34354893"
+    },
+    {
+      "fixture_id": "34354892",
+      "league": "Icelandic Urvalsdeild Karla",
+      "team_home": "Vikingur Reykjavik",
+      "team_away": "Stjarnan",
+      "fixture_url": "https://m.skybet.com/football/icelandic-urvalsdeild-karla/vikingur-reykjavik-v-stjarnan/34354892"
+    },
+    {
+      "fixture_id": "34355010",
+      "league": "Icelandic Urvalsdeild Karla",
+      "team_home": "Breidablik",
+      "team_away": "Valur",
+      "fixture_url": "https://m.skybet.com/football/icelandic-urvalsdeild-karla/breidablik-v-valur/34355010"
+    },
+    {
+      "fixture_id": "34308829",
+      "league": "Italian Serie A",
+      "team_home": "Monza",
+      "team_away": "Roma",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-a/monza-v-roma/34308829"
+    },
+    {
+      "fixture_id": "34309060",
+      "league": "Italian Serie A",
+      "team_home": "Fiorentina",
+      "team_away": "Milan",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-a/fiorentina-v-milan/34309060"
+    },
+    {
+      "fixture_id": "34349136",
+      "league": "Italian Serie C",
+      "team_home": "Caldiero Terme",
+      "team_away": "US Virtus Verona 1921",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-c/caldiero-terme-v-us-virtus-verona-1921/34349136"
+    },
+    {
+      "fixture_id": "34349137",
+      "league": "Italian Serie C",
+      "team_home": "Perugia",
+      "team_away": "Lucchese",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-c/perugia-v-lucchese/34349137"
+    },
+    {
+      "fixture_id": "34349141",
+      "league": "Italian Serie C",
+      "team_home": "Turris",
+      "team_away": "Audace Cerignola",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-c/turris-v-audace-cerignola/34349141"
+    },
+    {
+      "fixture_id": "34349140",
+      "league": "Italian Serie C",
+      "team_home": "Union Clodiense",
+      "team_away": "Pro Patria",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-c/union-clodiense-v-pro-patria/34349140"
+    },
+    {
+      "fixture_id": "34349138",
+      "league": "Italian Serie C",
+      "team_home": "Virtus Entella",
+      "team_away": "FC Legnago",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-c/virtus-entella-v-fc-legnago/34349138"
+    },
+    {
+      "fixture_id": "34349334",
+      "league": "Italian Serie C",
+      "team_home": "Ascoli",
+      "team_away": "Pescara",
+      "fixture_url": "https://m.skybet.com/football/italian-serie-c/ascoli-v-pescara/34349334"
+    },
+    {
+      "fixture_id": "34355753",
+      "league": "Mexican Liga MX",
+      "team_home": "Santos Laguna",
+      "team_away": "FC Juárez",
+      "fixture_url": "https://m.skybet.com/football/mexican-liga-mx/santos-laguna-v-fc-juarez/34355753"
+    },
+    {
+      "fixture_id": "34378620",
+      "league": "Northern Irish Premiership",
+      "team_home": "Crusaders",
+      "team_away": "Linfield",
+      "fixture_url": "https://m.skybet.com/football/northern-irish-premiership/crusaders-v-linfield/34378620"
+    },
+    {
+      "fixture_id": "34378626",
+      "league": "Northern Irish Premiership",
+      "team_home": "Glenavon",
+      "team_away": "Ballymena United",
+      "fixture_url": "https://m.skybet.com/football/northern-irish-premiership/glenavon-v-ballymena-united/34378626"
+    },
+    {
+      "fixture_id": "34355058",
+      "league": "Paraguayan Primera Division",
+      "team_home": "2 de Mayo",
+      "team_away": "Tacuary",
+      "fixture_url": "https://m.skybet.com/football/paraguayan-primera-division/2-de-mayo-v-tacuary/34355058"
+    },
+    {
+      "fixture_id": "34354788",
+      "league": "Polish Ekstraklasa",
+      "team_home": "Pogoń Szczecin",
+      "team_away": "Piast Gliwice",
+      "fixture_url": "https://m.skybet.com/football/polish-ekstraklasa/pogon-szczecin-v-piast-gliwice/34354788"
+    },
+    {
+      "fixture_id": "34354949",
+      "league": "Polish Ekstraklasa",
+      "team_home": "Jagiellonia Bialystok",
+      "team_away": "Legia Warsaw",
+      "fixture_url": "https://m.skybet.com/football/polish-ekstraklasa/jagiellonia-bialystok-v-legia-warsaw/34354949"
+    },
+    {
+      "fixture_id": "34343783",
+      "league": "Polish First League",
+      "team_home": "Termalica Bruk-Bet Nieciecza",
+      "team_away": "Znicz Pruszków",
+      "fixture_url": "https://m.skybet.com/football/polish-first-league/termalica-bruk-bet-nieciecza-v-znicz-pruszkow/34343783"
+    },
+    {
+      "fixture_id": "34354890",
+      "league": "Portuguese Primeira Liga",
+      "team_home": "Nacional",
+      "team_away": "Benfica",
+      "fixture_url": "https://m.skybet.com/football/portuguese-primeira-liga/nacional-v-benfica/34354890"
+    },
+    {
+      "fixture_id": "34355013",
+      "league": "Portuguese Primeira Liga",
+      "team_home": "Porto",
+      "team_away": "Sporting Braga",
+      "fixture_url": "https://m.skybet.com/football/portuguese-primeira-liga/porto-v-sporting-braga/34355013"
+    },
+    {
+      "fixture_id": "34074146",
+      "league": "Premier League",
+      "team_home": "Brighton",
+      "team_away": "Tottenham",
+      "fixture_url": "https://m.skybet.com/football/premier-league/brighton-v-tottenham/34074146"
+    },
+    {
+      "fixture_id": "34354869",
+      "league": "Rep. Ireland Premier Division",
+      "team_home": "Shamrock Rovers",
+      "team_away": "Shelbourne FC",
+      "fixture_url": "https://m.skybet.com/football/rep--ireland-premier-division/shamrock-rovers-v-shelbourne-fc/34354869"
+    },
+    {
+      "fixture_id": "34366363",
+      "league": "Romania Liga I",
+      "team_home": "Botoșani",
+      "team_away": "Rapid Bucureşti",
+      "fixture_url": "https://m.skybet.com/football/romania-liga-i/botosani-v-rapid-bucuresti/34366363"
+    },
+    {
+      "fixture_id": "34366555",
+      "league": "Romania Liga I",
+      "team_home": "Fotbal Club FCSB",
+      "team_away": "AS FC Buzău",
+      "fixture_url": "https://m.skybet.com/football/romania-liga-i/fotbal-club-fcsb-v-as-fc-buzau/34366555"
+    },
+    {
+      "fixture_id": "34354976",
+      "league": "Scottish Championship",
+      "team_home": "Falkirk",
+      "team_away": "Livingston",
+      "fixture_url": "https://m.skybet.com/football/scottish-championship/falkirk-v-livingston/34354976"
+    },
+    {
+      "fixture_id": "34068811",
+      "league": "Scottish Premiership",
+      "team_home": "Rangers",
+      "team_away": "St Johnstone",
+      "fixture_url": "https://m.skybet.com/football/scottish-premiership/rangers-v-st-johnstone/34068811"
+    },
+    {
+      "fixture_id": "34332794",
+      "league": "Serbian Meridian Superliga",
+      "team_home": "FK IMT Novi Beograd",
+      "team_away": "Crvena zvezda",
+      "fixture_url": "https://m.skybet.com/football/serbian-meridian-superliga/fk-imt-novi-beograd-v-crvena-zvezda/34332794"
+    },
+    {
+      "fixture_id": "34332792",
+      "league": "Serbian Meridian Superliga",
+      "team_home": "FK Spartak Subotica",
+      "team_away": "Vojvodina",
+      "fixture_url": "https://m.skybet.com/football/serbian-meridian-superliga/fk-spartak-subotica-v-vojvodina/34332792"
+    },
+    {
+      "fixture_id": "34332795",
+      "league": "Serbian Meridian Superliga",
+      "team_home": "TSC",
+      "team_away": "Jedinstvo Ub",
+      "fixture_url": "https://m.skybet.com/football/serbian-meridian-superliga/tsc-v-jedinstvo-ub/34332795"
+    },
+    {
+      "fixture_id": "34141801",
+      "league": "Sky Bet Championship",
+      "team_home": "Leeds",
+      "team_away": "Sheffield Utd",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-championship/leeds-v-sheffield-utd/34141801"
+    },
+    {
+      "fixture_id": "34107635",
+      "league": "Sky Bet League One",
+      "team_home": "Crawley",
+      "team_away": "Shrewsbury",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-league-one/crawley-v-shrewsbury/34107635"
+    },
+    {
+      "fixture_id": "34107640",
+      "league": "Sky Bet League One",
+      "team_home": "Peterborough",
+      "team_away": "Rotherham",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-league-one/peterborough-v-rotherham/34107640"
+    },
+    {
+      "fixture_id": "34079818",
+      "league": "Sky Bet League Two",
+      "team_home": "Bradford",
+      "team_away": "Newport",
+      "fixture_url": "https://m.skybet.com/football/sky-bet-league-two/bradford-v-newport/34079818"
+    },
+    {
+      "fixture_id": "34354815",
+      "league": "Slovakian Super Liga",
+      "team_home": "DAC Dunajská Streda",
+      "team_away": "MŠK Zilina",
+      "fixture_url": "https://m.skybet.com/football/slovakian-super-liga/dac-dunajska-streda-v-msk-zilina/34354815"
+    },
+    {
+      "fixture_id": "34354821",
+      "league": "Slovakian Super Liga",
+      "team_home": "Dukla Banská Bystrica",
+      "team_away": "MFK Zemplín Michalovce",
+      "fixture_url": "https://m.skybet.com/football/slovakian-super-liga/dukla-banska-bystrica-v-mfk-zemplin-michalovce/34354821"
+    },
+    {
+      "fixture_id": "34354786",
+      "league": "Slovenian Premier League",
+      "team_home": "Maribor",
+      "team_away": "NK Celje",
+      "fixture_url": "https://m.skybet.com/football/slovenian-premier-league/maribor-v-nk-celje/34354786"
+    },
+    {
+      "fixture_id": "34354952",
+      "league": "Slovenian Premier League",
+      "team_home": "Olimpija Ljubljana",
+      "team_away": "FC Koper",
+      "fixture_url": "https://m.skybet.com/football/slovenian-premier-league/olimpija-ljubljana-v-fc-koper/34354952"
+    },
+    {
+      "fixture_id": "34147651",
+      "league": "Spanish La Liga",
+      "team_home": "Sevilla",
+      "team_away": "Betis",
+      "fixture_url": "https://m.skybet.com/football/spanish-la-liga/sevilla-v-betis/34147651"
+    },
+    {
+      "fixture_id": "34147664",
+      "league": "Spanish La Liga",
+      "team_home": "Real Sociedad",
+      "team_away": "Atlético Madrid",
+      "fixture_url": "https://m.skybet.com/football/spanish-la-liga/real-sociedad-v-atletico-madrid/34147664"
+    },
+    {
+      "fixture_id": "34225122",
+      "league": "Spanish Segunda",
+      "team_home": "Levante",
+      "team_away": "Real Oviedo CF",
+      "fixture_url": "https://m.skybet.com/football/spanish-segunda/levante-v-real-oviedo-cf/34225122"
+    },
+    {
+      "fixture_id": "34225096",
+      "league": "Spanish Segunda",
+      "team_home": "Albacete Balompié",
+      "team_away": "Cordoba",
+      "fixture_url": "https://m.skybet.com/football/spanish-segunda/albacete-balompie-v-cordoba/34225096"
+    },
+    {
+      "fixture_id": "34343667",
+      "league": "Turkish Super Lig",
+      "team_home": "Galatasaray",
+      "team_away": "Alanyaspor",
+      "fixture_url": "https://m.skybet.com/football/turkish-super-lig/galatasaray-v-alanyaspor/34343667"
+    },
+    {
+      "fixture_id": "34343668",
+      "league": "Turkish Super Lig",
+      "team_home": "Gazisehir Gaziantep F.K.",
+      "team_away": "Besiktas",
+      "fixture_url": "https://m.skybet.com/football/turkish-super-lig/gazisehir-gaziantep-fk-v-besiktas/34343668"
+    },
+    {
+      "fixture_id": "33420667",
+      "league": "UEFA Nations League",
+      "team_home": "Latvia",
+      "team_away": "North Macedonia",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/latvia-v-north-macedonia/33420667"
+    },
+    {
+      "fixture_id": "33420625",
+      "league": "UEFA Nations League",
+      "team_home": "Moldova",
+      "team_away": "Andorra",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/moldova-v-andorra/33420625"
+    },
+    {
+      "fixture_id": "33420655",
+      "league": "UEFA Nations League",
+      "team_home": "Austria",
+      "team_away": "Kazakhstan",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/austria-v-kazakhstan/33420655"
+    },
+    {
+      "fixture_id": "33420653",
+      "league": "UEFA Nations League",
+      "team_home": "England",
+      "team_away": "Greece",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/england-v-greece/33420653"
+    },
+    {
+      "fixture_id": "33420692",
+      "league": "UEFA Nations League",
+      "team_home": "Faroe Islands",
+      "team_away": "Armenia",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/faroe-islands-v-armenia/33420692"
+    },
+    {
+      "fixture_id": "33420777",
+      "league": "UEFA Nations League",
+      "team_home": "Finland",
+      "team_away": "Rep of Ireland",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/finland-v-rep-of-ireland/33420777"
+    },
+    {
+      "fixture_id": "33420670",
+      "league": "UEFA Nations League",
+      "team_home": "Gibraltar",
+      "team_away": "San Marino",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/gibraltar-v-san-marino/33420670"
+    },
+    {
+      "fixture_id": "33420737",
+      "league": "UEFA Nations League",
+      "team_home": "Israel",
+      "team_away": "France",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/israel-v-france/33420737"
+    },
+    {
+      "fixture_id": "33420709",
+      "league": "UEFA Nations League",
+      "team_home": "Italy",
+      "team_away": "Belgium",
+      "fixture_url": "https://m.skybet.com/football/uefa-nations-league/italy-v-belgium/33420709"
+    },
+    {
+      "fixture_id": "34344030",
+      "league": "Uruguayan Primera Division",
+      "team_home": "Nacional",
+      "team_away": "Peñarol",
+      "fixture_url": "https://m.skybet.com/football/uruguayan-primera-division/nacional-v-penarol/34344030"
+    },
+    {
+      "fixture_id": "34344406",
+      "league": "Uruguayan Primera Division",
+      "team_home": "Deportivo Maldonado",
+      "team_away": "CA Progreso",
+      "fixture_url": "https://m.skybet.com/football/uruguayan-primera-division/deportivo-maldonado-v-ca-progreso/34344406"
+    },
+    {
+      "fixture_id": "34309258",
+      "league": "USA MLS",
+      "team_home": "New York City FC",
+      "team_away": "Nashville Soccer Club",
+      "fixture_url": "https://m.skybet.com/football/usa-mls/new-york-city-fc-v-nashville-soccer-club/34309258"
+    }
+  ]

@@ -1,0 +1,125 @@
+{
+    "fixture": {
+      "fixture_id": "34074146",
+      "league": "Premier League",
+      "team_home": "Brighton",
+      "team_away": "Tottenham",
+      "fixture_url": "https://m.skybet.com/football/premier-league/brighton-v-tottenham/34074146"
+    },
+    "odds": [
+      {
+        "name": "Full Time Result",
+        "values": [
+          {
+            "value": "Win",
+            "odd": "17/10",
+            "minimum_ev_odd": "18/10",
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "Bet365" 
+          },
+          {
+            "value": "Draw",
+            "odd": "29/10",
+            "minimum_ev_odd": "30/10",
+            "best_bookmaker": "Bet365",
+            "user_best_bookmaker": "Bet365"
+          },
+          {
+            "value": "Win",
+            "odd": "5/4",
+            "minimum_ev_odd": "6/4",
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "None"
+          }
+        ]
+      },
+      {
+        "name": "Full Time Result - 2 UP",
+        "values": [
+          {
+            "value": "Win",
+            "odd": "29/20",
+            "minimum_ev_odd": "30/20",
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "SkyBet"
+          },
+          {
+            "value": "Draw",
+            "odd": "29/10",
+            "minimum_ev_odd": "30/10",
+            "best_bookmaker": "Bet365",
+            "user_best_bookmaker": "None"
+          },
+          {
+            "value": "Win",
+            "odd": "23/20",
+            "minimum_ev_odd": "24/20",
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "SkyBet"
+          }
+        ]
+      },
+      {
+        "name": "Goal Scorers",
+        "values": [
+          {
+            "value": "Danny Welbeck",
+            "odds": {
+              "first": "7/1",
+              "last": "7/1",
+              "anytime": "15/8"
+            },
+            "minimum_ev_odd": {
+              "first": "8/1",
+              "last": "8/1",
+              "anytime": "2/1"
+            },
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "SkyBet"
+          },
+          {
+            "value": "Kaoru Mitoma",
+            "odds": {
+              "first": "10/1",
+              "last": "10/1",
+              "anytime": "11/4"
+            },
+            "minimum_ev_odd": {
+              "first": "11/1",
+              "last": "11/1",
+              "anytime": "3/1"
+            },
+            "best_bookmaker": "Bet365",
+            "user_best_bookmaker": "None"
+          }
+        ]
+      },
+      {
+        "name": "Corners",
+        "values": [
+          {
+            "value": "Over 5.5 corners",
+            "odd": "4/6",
+            "minimum_ev_odd": "5/6",
+            "best_bookmaker": "Bet365",
+            "user_best_bookmaker": "Bet365"
+          },
+          {
+            "value": "Under 10.5 corners",
+            "odd": "7/4",
+            "minimum_ev_odd": "8/4",
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "SkyBet"
+          },
+          {
+            "value": "Over 12.5 corners",
+            "odd": "12/1",
+            "minimum_ev_odd": "13/1",
+            "best_bookmaker": "SkyBet",
+            "user_best_bookmaker": "None"
+          }
+        ]
+      }
+    ]
+  }
+  
