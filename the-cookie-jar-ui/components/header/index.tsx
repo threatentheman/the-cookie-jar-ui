@@ -12,9 +12,7 @@ const Header = () => {
         {/* Navigation */}
         <nav className="grid grid-cols-12">
           <Link href="/" className="col-span-12">Home</Link>
-          <Link href="/resources" className="col-span-12">Help/Resources</Link>
-          <Link href="/fixtures" className="col-span-12">Fixtures</Link>
-          <Link href="/recommendations/live" className="col-span-12">Live betting</Link>
+          <Link href="/fixture" className="col-span-12">Fixtures</Link>
           <Link href="/profile" className="col-span-12">Profile</Link>
         </nav>
 

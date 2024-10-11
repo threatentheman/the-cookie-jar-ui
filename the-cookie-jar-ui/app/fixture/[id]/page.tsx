@@ -1,11 +1,15 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';  // Import useParams
+"use client";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-// Type definitions for the fixture data
 interface Odds {
   value: string;
   odd: string;
+  minimum_ev_odd: string;
+  best_bookmaker: string;
+  user_best_bookmaker: string;
 }
 
 interface Market {
@@ -19,7 +23,7 @@ interface FixtureData {
   team_home: string;
   team_away: string;
   fixture_url: string;
-  odds?: Market[]; // Added odds as optional
+  odds?: Market[];
 }
 
 interface UserBookmaker {
@@ -27,42 +31,44 @@ interface UserBookmaker {
   signedUp: boolean;
 }
 
-// Fetch fixture data based on fixtureId
-const fetchFixture = async (fixtureId: string): Promise<FixtureData | undefined> => {
+const fetchFixture = async (
+  fixtureId: string
+): Promise<FixtureData | undefined> => {
   const response = await fetch(`/json/fixtures.json`);
-  const data: FixtureData[] = await response.json(); // Data is an array
+  const data: FixtureData[] = await response.json();
   return data.find((fixture: FixtureData) => fixture.fixture_id === fixtureId);
 };
 
 const fetchOdds = async (fixtureId: string): Promise<Market[] | undefined> => {
-    const response = await fetch(`/json/odds.json`);
-    const data = await response.json();
-  
-    // Check if the fixture_id matches the one in odds.json
-    if (data.fixture.fixture_id === fixtureId) {
-      return data.odds; // Return the odds array directly
-    }
-  
-    // If the fixture_id doesn't match, return undefined
-    return undefined;
-  };
-  
-// Fetch user bookmakers (mocked data for now)
+  const response = await fetch(`/json/odds.json`);
+  const data = await response.json();
+
+  if (data.fixture.fixture_id === fixtureId) {
+    return data.odds;
+  }
+
+  return undefined;
+};
+
 const fetchUserBookmakers = async (): Promise<UserBookmaker[]> => {
   return [
-    { name: 'SkyBet', signedUp: true },
-    { name: 'Bet365', signedUp: false },
+    { name: "SkyBet", signedUp: true },
+    { name: "Bet365", signedUp: false },
+    { name: "Betfair", signedUp: false },
   ];
 };
 
 // Fixture Detail Page Component
 const FixtureDetailPage = () => {
-  const params = useParams();  // Get dynamic route params
+  const params = useParams(); // Get dynamic route params
   const fixtureId = params.id; // Extract the id parameter
 
   const [fixtureData, setFixtureData] = useState<FixtureData | null>(null);
   const [odds, setOdds] = useState<Market[] | null>(null);
   const [userBookmakers, setUserBookmakers] = useState<UserBookmaker[]>([]);
+  const [collapsedMarkets, setCollapsedMarkets] = useState<
+    Record<string, boolean>
+  >({});
 
   useEffect(() => {
     if (!fixtureId) return;
@@ -73,49 +79,131 @@ const FixtureDetailPage = () => {
     fetchUserBookmakers().then(setUserBookmakers);
   }, [fixtureId]);
 
-  const calculateEV = (odd: string): boolean => {
+  const calculateEV = (
+    odd: string | number,
+    minimumEvOdd: string | number
+  ): boolean => {
     let oddValue: number;
-  
-    // Check if it's a fractional odd (contains a "/")
-    if (odd?.includes('/')) {
-      // Split the fractional odds and calculate decimal odds
-      const [numerator, denominator] = odd.split('/').map(Number);
-      oddValue = (numerator / denominator) + 1; // Convert to decimal
+    let minEvOddValue: number;
+
+    const oddString = String(odd);
+    const minEvOddString = String(minimumEvOdd);
+
+    // Convert fractional odds to decimal
+    if (oddString.includes("/")) {
+      const [numerator, denominator] = oddString.split("/").map(Number);
+      oddValue = numerator / denominator + 1; // Convert to decimal
     } else {
-      // If it's already decimal, parse it directly
-      oddValue = parseFloat(odd);
+      oddValue = parseFloat(oddString); // If decimal odds, parse directly
     }
-  
-    // Assuming odds greater than 2.0 is a positive EV bet
-    return oddValue > 2;
+
+    // Same conversion for minimum EV odd
+    if (minEvOddString.includes("/")) {
+      const [numerator, denominator] = minEvOddString.split("/").map(Number);
+      minEvOddValue = numerator / denominator + 1;
+    } else {
+      minEvOddValue = parseFloat(minEvOddString);
+    }
+
+    // Compare odds to minimum EV odd to determine if it's a positive EV bet
+    return oddValue >= minEvOddValue;
+  };
+
+  // Toggle the collapse/expand of markets
+  const toggleMarketCollapse = (marketName: string) => {
+    setCollapsedMarkets((prev) => ({
+      ...prev,
+      [marketName]: !prev[marketName],
+    }));
   };
 
   if (!fixtureData || !odds) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>{fixtureData.team_home} vs {fixtureData.team_away}</h1>
-      <h2>{fixtureData.league}</h2>
+    <div className="text-gray-600 p-10">
+      <div className="header-wrapper mb-10">
+        <h1 className="text-2xl text-center">
+          {fixtureData.team_home} vs {fixtureData.team_away}
+        </h1>
+        <h2 className="text-xl text-center">{fixtureData.league}</h2>
+      </div>
 
-      <h3>Betting Markets</h3>
       {odds.map((market) => (
-        <div key={market.name}>
-          <h4>{market.name}</h4>
-          {market.values.map((bet, index) => {
-            const positiveEV = calculateEV(bet.odd);
-            const signedUpBookmaker = userBookmakers.find(b => b.signedUp)?.name || 'None';
+        <table className="w-full mb-8" key={market.name}>
+          <thead>
+            <tr className="w-full">
+              <th
+                className="bg-gray-700 rounded-lg m-w-full items-center p-4"
+                colSpan={7}
+              >
+                <div className="flex justify-between items-center">
+                  <h4 className="text-left text-white">{market.name}</h4>
+                  <FontAwesomeIcon
+                    icon={
+                      collapsedMarkets[market.name]
+                        ? faChevronUp
+                        : faChevronDown
+                    }
+                    className="text-white cursor-pointer"
+                    onClick={() => toggleMarketCollapse(market.name)}
+                  />
+                </div>
+              </th>
+            </tr>
+            {!collapsedMarkets[market.name] && (
+              <tr>
+                <th className="text-left px-4">Bet</th>
+                <th className="text-left px-4">Odd</th>
+                <th className="text-left px-4">Minimum EV Odd</th>
+                <th className="text-left px-4">Positive EV</th>
+                <th className="text-left px-4">Your Best Bookmaker</th>
+                <th className="text-left px-4">Best Bookmaker</th>
+                <th className="text-left px-4">Action</th>
+              </tr>
+            )}
+          </thead>
 
-            return (
-              <div key={index}>
-                <p>
-                  Bet: {bet.value}, Odd: {bet.odd}, Positive EV: {positiveEV ? 'Yes' : 'No'}
-                </p>
-                <p>Best Bookmaker: {signedUpBookmaker}</p>
-                <a href={fixtureData.fixture_url} target="_blank">Place Bet</a>
-              </div>
-            );
-          })}
-        </div>
+          {!collapsedMarkets[market.name] && (
+            <tbody>
+              {market.values.map((bet, index) => {
+                const positiveEV = calculateEV(bet.odd, bet.minimum_ev_odd);
+                const signedUpBookmaker =
+                  userBookmakers.find((b) => b.signedUp)?.name || "None";
+
+                return (
+                  <tr key={index} className="px-4">
+                    <td className="py-2 px-4">{bet.value}</td>
+                    <td className="py-2 px-4">{bet.odd}</td>
+                    <td className="py-2 px-4">{bet.minimum_ev_odd}</td>
+                    <td className="py-2 px-4">
+                      <p
+                        className={`text-sm rounded-full px-3 py-1 w-fit ${
+                          positiveEV
+                            ? "bg-green-500 text-white"
+                            : "bg-red-500 text-white"
+                        }`}
+                      >
+                        {positiveEV ? "Yes" : "No"}
+                      </p>
+                    </td>
+                    <td className="py-2 px-4">{bet.user_best_bookmaker}</td>
+                    <td className="py-2 px-4">{bet.best_bookmaker}</td>
+                    <td className="py-2 px-4">
+                      <a
+                        className="rounded-full border border-gray-700 px-4 py-2 hover:bg-gray-700 hover:text-white"
+                        type="button"
+                        href={fixtureData.fixture_url}
+                        target="_blank"
+                      >
+                        Place Bet
+                      </a>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          )}
+        </table>
       ))}
     </div>
   );
