@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import {Providers} from "./providers";
+
 config.autoAddCss = false;
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,9 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
+        <Providers>
         <main className="grid grid-cols-12">
           <div className="col-span-12 md:col-span-3 lg:col-span-2">
             <Header />
@@ -42,6 +31,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </main>
+        </Providers>
       </body>
     </html>
   );
