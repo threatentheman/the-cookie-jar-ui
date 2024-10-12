@@ -14,11 +14,33 @@ const ProfilePage = () => {
   });
 
   const bookmakersList = [
-    "Bet365",
-    "William Hill",
-    "Paddy Power",
-    "Betfair",
-    "Ladbrokes",
+'Bet365',
+  'William Hill',
+  'Ladbrokes',
+  'Coral',
+  'Betfair',
+  'Paddy Power',
+  'Sky Bet',
+  'BetVictor',
+  'Unibet',
+  '888sport',
+  'Betfred',
+  'BoyleSports',
+  'Virgin Bet',
+  'SpreadEx',
+  'Betway',
+  'Bwin',
+  'SBK',
+  'Smarkets',
+  'QuinnBet',
+  'VBet',
+  'Parimatch',
+  'MansionBet',
+  'BetStars',
+  'Sportingbet',
+  'BetDaq',
+  'BetUK',
+  'Betiton'
   ];
 
   const riskAppetiteList = ["low", "medium", "high"];
