@@ -1,3 +1,4 @@
+// app/login/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -41,7 +42,8 @@ export default function Login() {
   };
 
   return (
-    <div className="items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <section className="items-center justify-center min-h-screen p-8 sm:p-20">
+      {message && <p className="border-l-2 pl-3 py-1 mb-10 bg-default-100 text-gray-700 text-sm">{message}</p>}
       {step === 1 && (
         <>
           <h3 className="text-gray-700 pb-2">Login with Phone Number</h3>
@@ -57,49 +59,31 @@ export default function Login() {
               }}
             />
           </div>
-          <Button
-            onClick={handleSendCode}
-            className="bg-blue-500 px-4 py-1 rounded-lg"
-          >
-            Send Login Code
-          </Button>
+          <Button onClick={handleSendCode}>Send Login Code</Button>
         </>
       )}
 
       {step === 2 && (
         <>
-          <h3 className="text-gray-700">Enter Verification Code</h3>
-          <div className="flex gap-4 focus-visible:outline-none mb-2">
-            <div className="border border-gray-400 rounded-lg overflow-hidden px-4 py-1">
+          <h3 className="text-gray-700 pb-2 mb-2">Enter your verification code</h3>
+          <div className="mb-4">
             <Input
-              className="text-gray-700"
-              placeholder="6-digit code"
+              label="6-digit code"
               value={verificationCode}
               onChange={(e) => setVerificationCode(e.target.value)}
               maxLength={6}
               type="text"
             />
-            </div>
-
-            <Button
-              onClick={handleVerifyCode}
-              className="bg-blue-500 px-4 py-1 rounded-lg"
-            >
-              Verify Code
-            </Button>
           </div>
 
-          <Button
-            onClick={handleResendCode}
-            className="border text-blue-500 border-blue-500 px-4 py-1 rounded-lg"
-          >
-            Resend Code
-          </Button>
+          <div className="flex gap-4">
+            <Button onClick={handleVerifyCode}>Verify Code</Button>
+            <Button onClick={handleResendCode}>
+              Resend Code
+            </Button>
+          </div>
         </>
       )}
-
-      <Spacer y={1} />
-      {message && <p className="text-gray-700">{message}</p>}
-    </div>
+    </section>
   );
 }

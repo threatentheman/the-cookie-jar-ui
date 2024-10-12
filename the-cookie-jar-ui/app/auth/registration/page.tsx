@@ -1,163 +1,145 @@
+// app/signup/page.tsx
 "use client";
 
-import { useState } from "react";
-import {
-  Input,
-  Button,
-  Spacer,
-  Checkbox,
-  CheckboxGroup,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownSection,
-  DropdownItem,
-} from "@nextui-org/react";
+import React, { useState } from "react";
+import { Input, Button, Select, SelectItem } from "@nextui-org/react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
-export default function Registration() {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [country, setCountry] = useState("");
-  const [riskAppetite, setRiskAppetite] = useState(50); // Default to 50% on slider
-  const [sportsbooks, setSportsbooks] = useState([]);
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [agreement, setAgreement] = useState(false);
-  const [responsibleGambling, setResponsibleGambling] = useState(false);
+const bookmakersList = [
+  "Bet365", "William Hill", "Ladbrokes", "Coral", "Betfair", "Paddy Power", "Sky Bet", "BetVictor", "Unibet", 
+  "888sport", "Betfred", "BoyleSports", "Virgin Bet", "SpreadEx", "Betway", "Bwin", "SBK", "Smarkets", 
+  "QuinnBet", "VBet", "Parimatch", "MansionBet", "BetStars", "Sportingbet", "BetDaq", "BetUK", "Betiton"
+];
 
-  const handleSportsbookChange = (selected) => {
-    setSportsbooks(selected);
+const SignupPage = () => {
+  const [signupData, setSignupData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    riskAppetite: "",
+    bookmakers: [],  // Multiple bookmakers selected by the user
+    verificationCode: "",
+  });
+  const [isCodeSent, setIsCodeSent] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSignupData({ ...signupData, [name]: value });
   };
 
-  const handleSubmit = () => {
-    if (!fullName || !email || !password || !confirmPassword || !country) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-
-    if (!agreement || !responsibleGambling) {
-      alert(
-        "You must agree to the terms and acknowledge responsible gambling."
-      );
-      return;
-    }
-
-    console.log({
-      fullName,
-      email,
-      password,
-      country,
-      riskAppetite,
-      sportsbooks,
-      dateOfBirth,
-    });
+  const handlePhoneChange = (phone: string) => {
+    setSignupData({ ...signupData, phone });
   };
 
-  const sportsbooksList = [
-    "Bet365",
-    "William Hill",
-    "Ladbrokes",
-    "Coral",
-    "Betfair",
-    "Paddy Power",
-    "Sky Bet",
-    "BetVictor",
-    "Unibet",
-    "888sport",
-  ];
+  const handleSelectChange = (keys: Set<string>) => {
+    setSignupData({ ...signupData, bookmakers: Array.from(keys) });
+  };
+
+  const handleSendCode = () => {
+    if (signupData.phone || signupData.email) {
+      setIsCodeSent(true);
+      setMessage("A 6-digit code has been sent to your email or phone.");
+    } else {
+      setMessage("Please enter a valid email or phone number.");
+    }
+  };
+
+  const handleVerifyCode = () => {
+    if (signupData.verificationCode.length === 6) {
+      setMessage("Sign up successful!");
+    } else {
+      setMessage("Please enter a valid 6-digit code.");
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isCodeSent) {
+      handleVerifyCode();
+    } else {
+      handleSendCode();
+    }
+  };
 
   return (
-    <div className="items-center justify-items-center p-8 pb-20 gap-8 sm:p-20 text-gray-700">
-      <h2>Registration</h2>
+    <main className="min-h-screen bg-gray-100 p-12 flex justify-center items-center">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
+        <h1 className="text-2xl font-bold mb-6 text-center">Sign Up</h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
 
-      <Input
-        className="border border-gray-400 rounded-md overflow-hidden px-4 py-2 mb-4"
-        placeholder="Enter your full name"
-        value={fullName}
-        onChange={(e) => setFullName(e.target.value)}
-        fullWidth
-      />
-      <Input
-        className="border border-gray-400 rounded-md overflow-hidden px-4 py-2 mb-4"
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        fullWidth
-      />
+          {/* Name */}
+          <Input
+            type="text"
+            name="name"
+            label="Name"
+            value={signupData.name}
+            onChange={handleInputChange}
+            required
+          />
 
-      <Dropdown>
-        <DropdownTrigger>
-          <p className="border border-gray-400 rounded-md overflow-hidden px-4 py-2 mb-4">Country</p>
-        </DropdownTrigger>
-        <DropdownMenu aria-label="Dropdown Variants" className="text-gray-700">
-          <DropdownItem key="new">New file</DropdownItem>
-          <DropdownItem key="copy">Copy link</DropdownItem>
-          <DropdownItem key="edit">Edit file</DropdownItem>
-          <DropdownItem key="delete" className="text-danger" color="danger">
-            Delete file
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-      <Spacer y={1} />
+          {/* Email */}
+          <Input
+            type="email"
+            name="email"
+            label="Email"
+            value={signupData.email}
+            onChange={handleInputChange}
+          />
 
-      <p>Risk Appetite: {riskAppetite}%</p>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={riskAppetite}
-        onChange={(e) => setRiskAppetite(e.target.value)}
-        className="w-full"
-      />
-      <p>Choose Your Registered Sportsbooks</p>
-      <CheckboxGroup
-        color="primary"
-        value={sportsbooks}
-        onChange={handleSportsbookChange}
-        defaultValue={[]}
-      >
-        {sportsbooksList.map((book) => (
-          <Checkbox key={book} value={book}>
-            {book}
-          </Checkbox>
-        ))}
-      </CheckboxGroup>
+          {/* Phone Number */}
+          <PhoneInput
+            country={"gb"}
+            value={signupData.phone}
+            onChange={handlePhoneChange}
+            inputProps={{ name: "phone", required: true }}
+          />
 
-      <Input
-        label="Date of Birth"
-        type="date"
-        value={dateOfBirth}
-        onChange={(e) => setDateOfBirth(e.target.value)}
-        fullWidth
-      />
-      <Spacer y={1} />
+          {/* Risk Appetite (Optional) */}
+          <Select label="Your risk appetite (Optional)">
+            <SelectItem value="low">Low</SelectItem>
+            <SelectItem value="medium">Medium</SelectItem>
+            <SelectItem value="high">High</SelectItem>
+          </Select>
 
-      {/* Terms & Conditions */}
-      <Checkbox isSelected={agreement} onChange={setAgreement}>
-        I agree to the Terms & Conditions and Privacy Policy.
-      </Checkbox>
-      <Spacer y={1} />
+          {/* Bookmakers Multi-Select */}
+          <Select
+            label="Select your bookmakers (Optional)"
+            selectionMode="multiple"
+            onSelectionChange={handleSelectChange}
+            searchable
+          >
+            {bookmakersList.map((bookmaker) => (
+              <SelectItem key={bookmaker} value={bookmaker}>
+                {bookmaker}
+              </SelectItem>
+            ))}
+          </Select>
 
-      {/* Responsible Gambling */}
-      <Checkbox
-        isSelected={responsibleGambling}
-        onChange={setResponsibleGambling}
-      >
-        I acknowledge that I will gamble responsibly.
-      </Checkbox>
-      <Spacer y={1} />
+          {/* Verification Code Input (Visible after code is sent) */}
+          {isCodeSent && (
+            <Input
+              type="text"
+              name="verificationCode"
+              label="Enter the code"
+              value={signupData.verificationCode}
+              onChange={handleInputChange}
+              required
+              maxLength={6}
+            />
+          )}
 
-      {/* Submit Button */}
-      <Button onClick={handleSubmit} color="success">
-        Register
-      </Button>
-    </div>
+          {/* Submit Button */}
+          <Button type="submit">
+            {isCodeSent ? "Complete Sign Up" : "Send Verification Code"}
+          </Button>
+
+          {message && <p className="text-gray-700 mt-2">{message}</p>}
+        </form>
+      </div>
+    </main>
   );
-}
+};
+
+export default SignupPage;

@@ -63,8 +63,8 @@ const ProfilePage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-100 p-12 flex justify-center items-center">
-      <div className="bg-white  rounded-lg p-8 w-full max-w-lg">
+    <section className="min-h-screen bg-gray-100 p-12 flex justify-center items-center">
+      <div className="bg-white rounded-lg p-8 w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-6 text-center">Profile Page</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name */}
@@ -139,7 +139,7 @@ const ProfilePage = () => {
           </div>
         </form>
       </div>
-    </main>
+    </section>
   );
 };
 
