@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="bg-default-600 text-white p-4">
+    <header className="bg-default-800 text-white p-4">
       <div className="md:h-screen">
         {/* Logo */}
         <div className="text-lg font-bold mb-4">
@@ -12,7 +12,7 @@ const Header = () => {
         {/* Navigation */}
         <nav className="grid grid-cols-12 mb-4">
           <Link href="/" className="col-span-12">Home</Link>
-          <Link href="/fixture" className="col-span-12">Fixtures</Link>
+          <Link href="/fixtures" className="col-span-12">Fixtures</Link>
           <Link href="/profile" className="col-span-12">Profile</Link>
         </nav>
 

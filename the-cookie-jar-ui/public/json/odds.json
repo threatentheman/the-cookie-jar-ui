@@ -1,146 +1,292 @@
 {
     "fixture": {
-        "fixture_id": "34074146",
-        "league": "Premier League",
-        "team_home": "Brighton",
-        "team_away": "Tottenham",
-        "fixture_url": "https://m.skybet.com/football/premier-league/brighton-v-tottenham/34074146"
+      "fixture_id": "34074146",
+      "league": "Premier League",
+      "team_home": "Brighton",
+      "team_away": "Tottenham",
+      "fixture_url": "https://m.skybet.com/football/premier-league/brighton-v-tottenham/34074146"
     },
     "odds": [
-        {
-            "name": "Full Time Result",
-            "values": [
-                {
-                    "value": "Win",
-                    "odd": "17/10",
-                    "minimum_ev_odd": "19/10",
-                    "best_bookmaker": "SkyBet",
-                    "user_best_bookmaker": "SkyBet"
-                },
-                {
-                    "value": "Draw",
-                    "odd": "28/10",
-                    "minimum_ev_odd": "30/10",
-                    "best_bookmaker": "Betfair",
-                    "user_best_bookmaker": "Betfair"
-                },
-                {
-                    "value": "Win",
-                    "odd": "5/4",
-                    "minimum_ev_odd": "6/4",
-                    "best_bookmaker": "Bet365",
-                    "user_best_bookmaker": "None"
-                }
+      {
+        "name": "Full Time Result",
+        "values": [
+          {
+            "value": "Brighton Win",
+            "minimum_ev_odd": "19/10",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "17/10",
+                "positive_ev": false
+              },
+              {
+                "name": "Bet365",
+                "odd": "21/10",
+                "positive_ev": true
+              },
+              {
+                "name": "Betfair",
+                "odd": "20/10",
+                "positive_ev": true
+              }
             ]
-        },
-        {
-            "name": "Full Time Result - 2 UP",
-            "values": [
-                {
-                    "value": "Win",
-                    "odd": "29/20",
-                    "minimum_ev_odd": "30/20",
-                    "best_bookmaker": "SkyBet",
-                    "user_best_bookmaker": "SkyBet"
-                },
-                {
-                    "value": "Draw",
-                    "odd": "31/10",
-                    "minimum_ev_odd": "32/10",
-                    "best_bookmaker": "Bet365",
-                    "user_best_bookmaker": "None"
-                },
-                {
-                    "value": "Win",
-                    "odd": "23/20",
-                    "minimum_ev_odd": "24/20",
-                    "best_bookmaker": "Betfair",
-                    "user_best_bookmaker": "Betfair"
-                }
+          },
+          {
+            "value": "Draw",
+            "minimum_ev_odd": "30/10",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "28/10",
+                "positive_ev": false
+              },
+              {
+                "name": "Bet365",
+                "odd": "32/10",
+                "positive_ev": true
+              },
+              {
+                "name": "Betfair",
+                "odd": "30/10",
+                "positive_ev": false
+              }
             ]
-        },
-        {
-            "name": "Goal Scorers - First",
-            "values": [
-                {
-                    "value": "Danny Welbeck",
-                    "odd": "6/1",
-                    "minimum_ev_odd": "8/1",
-                    "best_bookmaker": "SkyBet",
-                    "user_best_bookmaker": "SkyBet"
-                },
-                {
-                    "value": "Kaoru Mitoma",
-                    "odd": "11/1",
-                    "minimum_ev_odd": "12/1",
-                    "best_bookmaker": "Bet365",
-                    "user_best_bookmaker": "None"
-                }
+          },
+          {
+            "value": "Tottenham Win",
+            "minimum_ev_odd": "6/5",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "5/4",
+                "positive_ev": true
+              },
+              {
+                "name": "Bet365",
+                "odd": "11/10",
+                "positive_ev": false
+              }
             ]
-        },
-        {
-            "name": "Goal Scorers - Anytime",
-            "values": [
-                {
-                    "value": "Danny Welbeck",
-                    "odd": "14/8",
-                    "minimum_ev_odd": "2/1",
-                    "best_bookmaker": "SkyBet",
-                    "user_best_bookmaker": "SkyBet"
-                },
-                {
-                    "value": "Kaoru Mitoma",
-                    "odd": "10/4",
-                    "minimum_ev_odd": "11/4",
-                    "best_bookmaker": "Betfair",
-                    "user_best_bookmaker": "None"
-                }
+          }
+        ]
+      },
+      {
+        "name": "Full Time Result - 2UP",
+        "values": [
+          {
+            "value": "Brighton Win",
+            "minimum_ev_odd": "30/20",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "29/20",
+                "positive_ev": false
+              },
+              {
+                "name": "Betfair",
+                "odd": "31/20",
+                "positive_ev": true
+              }
             ]
-        },
-        {
-            "name": "Goal Scorers - Last",
-            "values": [
-                {
-                    "value": "Danny Welbeck",
-                    "odd": "7/1",
-                    "minimum_ev_odd": "8/1",
-                    "best_bookmaker": "SkyBet",
-                    "user_best_bookmaker": "Bet365"
-                },
-                {
-                    "value": "Kaoru Mitoma",
-                    "odd": "10/1",
-                    "minimum_ev_odd": "11/1",
-                    "best_bookmaker": "Bet365",
-                    "user_best_bookmaker": "None"
-                }
+          },
+          {
+            "value": "Draw",
+            "minimum_ev_odd": "33/10",
+            "bookmakers": [
+              {
+                "name": "Bet365",
+                "odd": "35/10",
+                "positive_ev": true
+              },
+              {
+                "name": "SkyBet",
+                "odd": "32/10",
+                "positive_ev": false
+              }
             ]
-        },
-        {
-            "name": "Corners",
-            "values": [
-                {
-                    "value": "Over 5.5 corners",
-                    "odd": "4/6",
-                    "minimum_ev_odd": "5/6",
-                    "best_bookmaker": "SkyBet",
-                    "user_best_bookmaker": "SkyBet"
-                },
-                {
-                    "value": "Under 10.5 corners",
-                    "odd": "9/4",
-                    "minimum_ev_odd": "10/4",
-                    "best_bookmaker": "Bet365",
-                    "user_best_bookmaker": "None"
-                },
-                {
-                    "value": "Over 12.5 corners",
-                    "odd": "12/1",
-                    "minimum_ev_odd": "13/1",
-                    "best_bookmaker": "Betfair",
-                    "user_best_bookmaker": "None"
-                }
+          },
+          {
+            "value": "Tottenham Win",
+            "minimum_ev_odd": "24/20",
+            "bookmakers": [
+              {
+                "name": "Betfair",
+                "odd": "25/20",
+                "positive_ev": true
+              },
+              {
+                "name": "SkyBet",
+                "odd": "23/20",
+                "positive_ev": false
+              }
             ]
-        }
+          }
+        ]
+      },
+      {
+        "name": "Goal Scorers - First",
+        "values": [
+          {
+            "value": "Danny Welbeck",
+            "minimum_ev_odd": "8/1",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "6/1",
+                "positive_ev": false
+              },
+              {
+                "name": "Bet365",
+                "odd": "9/1",
+                "positive_ev": true
+              }
+            ]
+          },
+          {
+            "value": "Kaoru Mitoma",
+            "minimum_ev_odd": "12/1",
+            "bookmakers": [
+              {
+                "name": "Bet365",
+                "odd": "11/1",
+                "positive_ev": false
+              },
+              {
+                "name": "Betfair",
+                "odd": "13/1",
+                "positive_ev": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Goal Scorers - Anytime",
+        "values": [
+          {
+            "value": "Danny Welbeck",
+            "minimum_ev_odd": "2/1",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "14/8",
+                "positive_ev": false
+              },
+              {
+                "name": "Betfair",
+                "odd": "15/8",
+                "positive_ev": true
+              }
+            ]
+          },
+          {
+            "value": "Kaoru Mitoma",
+            "minimum_ev_odd": "11/4",
+            "bookmakers": [
+              {
+                "name": "Bet365",
+                "odd": "10/4",
+                "positive_ev": false
+              },
+              {
+                "name": "Betfair",
+                "odd": "12/4",
+                "positive_ev": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Goal Scorers - Last",
+        "values": [
+          {
+            "value": "Danny Welbeck",
+            "minimum_ev_odd": "8/1",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "7/1",
+                "positive_ev": false
+              },
+              {
+                "name": "Betfair",
+                "odd": "9/1",
+                "positive_ev": true
+              }
+            ]
+          },
+          {
+            "value": "Kaoru Mitoma",
+            "minimum_ev_odd": "11/1",
+            "bookmakers": [
+              {
+                "name": "Bet365",
+                "odd": "10/1",
+                "positive_ev": false
+              },
+              {
+                "name": "Betfair",
+                "odd": "12/1",
+                "positive_ev": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Corners",
+        "values": [
+          {
+            "value": "Over 5.5 corners",
+            "minimum_ev_odd": "5/6",
+            "bookmakers": [
+              {
+                "name": "SkyBet",
+                "odd": "4/6",
+                "positive_ev": false
+              },
+              {
+                "name": "Bet365",
+                "odd": "5/6",
+                "positive_ev": true
+              }
+            ]
+          },
+          {
+            "value": "Under 10.5 corners",
+            "minimum_ev_odd": "10/4",
+            "bookmakers": [
+              {
+                "name": "Bet365",
+                "odd": "9/4",
+                "positive_ev": false
+              },
+              {
+                "name": "SkyBet",
+                "odd": "11/4",
+                "positive_ev": true
+              }
+            ]
+          },
+          {
+            "value": "Over 12.5 corners",
+            "minimum_ev_odd": "13/1",
+            "bookmakers": [
+              {
+                "name": "Betfair",
+                "odd": "12/1",
+                "positive_ev": false
+              },
+              {
+                "name": "Bet365",
+                "odd": "14/1",
+                "positive_ev": true
+              }
+            ]
+          }
+        ]
+      }
     ]
-}
+  }
+  
