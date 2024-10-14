@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import BettingSlipModal from "@/components/modals/bettingSlipModal";
+import { Button } from "@nextui-org/react";
 
 interface Bookmaker {
   name: string;
@@ -32,11 +34,6 @@ interface FixtureData {
   odds?: Market[];
 }
 
-interface UserBookmaker {
-  name: string;
-  signedUp: boolean;
-}
-
 const fetchFixture = async (
   fixtureId: string
 ): Promise<FixtureData | undefined> => {
@@ -48,55 +45,30 @@ const fetchFixture = async (
 const fetchOdds = async (fixtureId: string): Promise<Market[] | undefined> => {
   const response = await fetch(`/json/odds.json`);
   const data = await response.json();
-
-  if (data.fixture.fixture_id === fixtureId) {
-    return data.odds;
-  }
-
-  return undefined;
+  return data.fixture.fixture_id === fixtureId ? data.odds : undefined;
 };
 
-const fetchUserBookmakers = async (): Promise<UserBookmaker[]> => {
-  return [
-    { name: "SkyBet", signedUp: true },
-    { name: "Bet365", signedUp: true },
-    { name: "Betfair", signedUp: false },
-  ];
-};
-
-const getBestBookmaker = (bookmakers: Bookmaker[]): Bookmaker => {
-  return bookmakers.reduce((best, current) =>
-    parseFloat(current.odd) > parseFloat(best.odd) ? current : best
-  );
-};
-
-const getUserBestBookmaker = (
-  bookmakers: Bookmaker[],
-  userBookmakers: UserBookmaker[]
-): Bookmaker | null => {
-  const signedUpBookmakers = bookmakers.filter((b) =>
-    userBookmakers.some((ub) => ub.name === b.name && ub.signedUp)
-  );
-  return signedUpBookmakers.length > 0 ? getBestBookmaker(signedUpBookmakers) : null;
-};
-
-// Fixture Detail Page Component
+// Main Fixture Detail Page Component
 const FixtureDetailPage = () => {
   const params = useParams();
   const fixtureId = params.id;
 
   const [fixtureData, setFixtureData] = useState<FixtureData | null>(null);
   const [odds, setOdds] = useState<Market[] | null>(null);
-  const [userBookmakers, setUserBookmakers] = useState<UserBookmaker[]>([]);
-  const [collapsedMarkets, setCollapsedMarkets] = useState<Record<string, boolean>>({});
-  const [searchTerm, setSearchTerm] = useState(""); // New search state
+  const [collapsedMarkets, setCollapsedMarkets] = useState<
+    Record<string, boolean>
+  >({});
+  const [searchTerm, setSearchTerm] = useState(""); // For searching markets
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+  const [userRiskChoice, setUserRiskChoice] = useState<
+    "low" | "medium" | "high"
+  >("low"); // User risk choice
 
   useEffect(() => {
     if (!fixtureId) return;
 
     fetchFixture(fixtureId).then(setFixtureData);
     fetchOdds(fixtureId).then(setOdds);
-    fetchUserBookmakers().then(setUserBookmakers);
   }, [fixtureId]);
 
   const toggleMarketCollapse = (marketName: string) => {
@@ -106,7 +78,6 @@ const FixtureDetailPage = () => {
     }));
   };
 
-  // Filter markets based on search term
   const filteredMarkets = odds?.filter(
     (market) =>
       market.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -118,7 +89,7 @@ const FixtureDetailPage = () => {
   if (!fixtureData || !odds) return <div>Loading...</div>;
 
   return (
-    <div className="p-10">
+    <div className="p-10 overflow-scroll">
       <div className="header-wrapper mb-10">
         <h1 className="text-2xl text-center">
           {fixtureData.team_home} vs {fixtureData.team_away}
@@ -127,16 +98,17 @@ const FixtureDetailPage = () => {
       </div>
 
       {/* Search Input */}
-      <div className="mb-4">
+      <div className="mb-4 flex justify-end">
         <input
           type="text"
           placeholder="Search markets or bets..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-2 border rounded-md"
+          className="w-full py-2 px-6 border rounded-full"
         />
       </div>
 
+      {/* Market List */}
       {filteredMarkets?.map((market) => (
         <table className="w-full mb-8" key={market.name}>
           <thead>
@@ -153,7 +125,9 @@ const FixtureDetailPage = () => {
                   <h4 className="text-left font-normal">{market.name}</h4>
                   <FontAwesomeIcon
                     icon={
-                      collapsedMarkets[market.name] ? faChevronUp : faChevronDown
+                      collapsedMarkets[market.name]
+                        ? faChevronUp
+                        : faChevronDown
                     }
                     className="cursor-pointer"
                     onClick={() => toggleMarketCollapse(market.name)}
@@ -168,9 +142,6 @@ const FixtureDetailPage = () => {
                   Minimum EV Odd
                 </th>
                 <th className="text-left px-4 py-2 font-normal border">
-                  Your Best Bookmaker/Odds
-                </th>
-                <th className="text-left px-4 py-2 font-normal border">
                   Best Bookmaker/Odds
                 </th>
                 <th className="text-left px-4 py-2 font-normal border">
@@ -182,60 +153,62 @@ const FixtureDetailPage = () => {
 
           {!collapsedMarkets[market.name] && (
             <tbody>
-              {market.values.map((bet, betIndex) => {
-                const userBestBookmaker = getUserBestBookmaker(
-                  bet.bookmakers,
-                  userBookmakers
-                );
-                const bestBookmaker = getBestBookmaker(bet.bookmakers);
-
-                return (
-                  <tr key={betIndex}>
-                    <td className="py-2 px-4 border">{bet.value}</td>
-                    <td className="py-2 px-4 border">{bet.minimum_ev_odd}</td>
-                    <td className="py-2 px-4 border">
-                      {userBestBookmaker ? (
-                        <span
-                          className={`text-sm rounded-full px-3 py-1 w-fit ${
-                            userBestBookmaker.positive_ev
-                              ? "bg-green-500 text-white"
-                              : "bg-red-500 text-white"
-                          }`}
-                        >
-                          {userBestBookmaker.name} ({userBestBookmaker.odd})
-                        </span>
-                      ) : (
-                        "None"
-                      )}
-                    </td>
-                    <td className="py-2 px-4 border">
-                      <span
-                        className={`text-sm rounded-full px-3 py-1 w-fit ${
-                          bestBookmaker.positive_ev
-                            ? "bg-green-500 text-white"
-                            : "bg-red-500 text-white"
-                        }`}
-                      >
-                        {bestBookmaker.name} ({bestBookmaker.odd})
-                      </span>
-                    </td>
-                    <td className="py-2 px-4 border">
-                      <a
-                        className="rounded-full border border-gray-700 px-4 py-2 hover:bg-gray-700 hover:text-white text-xs"
-                        type="button"
-                        href={fixtureData.fixture_url}
-                        target="_blank"
-                      >
-                        Place Bet
-                      </a>
-                    </td>
-                  </tr>
-                );
-              })}
+              {market.values.map((bet, betIndex) => (
+                <tr key={betIndex}>
+                  <td className="py-2 px-4 border">{bet.value}</td>
+                  <td className="py-2 px-4 border">{bet.minimum_ev_odd}</td>
+                  <td className="py-2 px-4 border">
+                    {bet.bookmakers[0].name} ({bet.bookmakers[0].odd})
+                  </td>
+                  <td className="py-2 px-4 border">
+                    <a
+                      className="rounded-full border border-gray-700 px-4 py-2 hover:bg-gray-700 hover:text-white text-xs"
+                      href={fixtureData.fixture_url}
+                      target="_blank"
+                    >
+                      Place Bet
+                    </a>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           )}
         </table>
       ))}
+
+      <Button
+        className="fixed bottom-4 right-4 rounded-full"
+        color="primary"
+        onClick={() => setIsModalOpen(true)} // Open modal when clicked
+      >
+        View Betting Slip
+      </Button>
+ 
+        <BettingSlipModal
+          fixtureId={fixtureId}
+          fixtureName={`${fixtureData.team_home} vs ${fixtureData.team_away}`}
+          lowRiskBets={[
+            { name: "Bet 1: Home Win", odd: "1.50", unitSize: "2 units" },
+            { name: "Bet 2: Over 1.5 Goals", odd: "1.40", unitSize: "3 units" },
+          ]}
+          mediumRiskBets={[
+            {
+              name: "Bet 1: Both Teams to Score",
+              odd: "2.00",
+              unitSize: "1 unit",
+            },
+          ]}
+          highRiskBets={[
+            {
+              name: "Bet 1: Correct Score 2-1",
+              odd: "10.00",
+              unitSize: "0.5 units",
+            },
+          ]}
+          userRiskChoice={userRiskChoice} // Pass user's risk choice as default tab
+          isOpen={isModalOpen} // Pass modal open state
+          onClose={() => setIsModalOpen(false)} // Pass close function
+        />
     </div>
   );
 };

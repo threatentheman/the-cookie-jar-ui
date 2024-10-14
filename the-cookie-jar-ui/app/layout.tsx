@@ -28,7 +28,6 @@ export default function RootLayout({
           </div>
           <div className="col-span-12 md:col-span-9 lg:col-span-10">
             {children}
-            <Footer />
           </div>
         </main>
         </Providers>
