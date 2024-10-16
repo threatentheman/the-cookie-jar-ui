@@ -153,8 +153,8 @@ export default function Fixtures() {
   );
 
   return (
-    <div className="min-h-screen max-h-screen flex flex-col p-8 text-default-600">
-      <h1 className="text-2xl font-bold mb-6">Fixtures</h1>
+    <div className="flex flex-col p-8 text-default-700">
+      <h1 className="text-2xl font-bold mb-6">Upcoming fixtures</h1>
 
       <div className="filters-wrapper grid grid-cols-12 gap-4 mb-4">
         <div className="col-span-4">
