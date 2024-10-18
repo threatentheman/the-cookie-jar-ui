@@ -4,6 +4,7 @@ import Header from "@/components/header";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { Providers } from "./providers";
+import { AuthProvider } from "@/context/AuthContext";
 import Script from "next/script";
 import { Quicksand, Nunito } from "next/font/google";
 
@@ -38,18 +39,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${quicksand.variable} ${nunito.variable}`}>
       <body className="bg-default-200 p-4">
-        <Providers>
-          <main className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 md:col-span-3 lg:col-span-2">
-              <div className="bg-white rounded-lg overflow-hidden">
-                <Header />
+        <AuthProvider>
+          <Providers>
+            <main className="grid grid-cols-12 gap-8">
+              <div className="col-span-12 md:col-span-3 lg:col-span-2">
+                <div className="bg-white rounded-lg overflow-hidden">
+                  <Header />
+                </div>
               </div>
-            </div>
-            <div className="col-span-12 md:col-span-9 lg:col-span-10">
-              <div className="bg-white rounded-lg">{children}</div>
-            </div>
-          </main>
-        </Providers>
+              <div className="col-span-12 md:col-span-9 lg:col-span-10">
+                <div className="bg-white rounded-lg">{children}</div>
+              </div>
+            </main>
+          </Providers>
+        </AuthProvider>
         <Script
           src="https://widgets.api-sports.io/2.0.3/widgets.js"
           type="module"
