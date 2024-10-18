@@ -3,8 +3,8 @@
 
 import React, { useState } from "react";
 import { Input, Button, Select, SelectItem } from "@nextui-org/react";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import { auth } from "../../../lib/firebase";
+import { createUserWithEmailAndPassword, sendSignInLinkToEmail } from "firebase/auth";
 
 const bookmakersList = [
   "Bet365", "William Hill", "Ladbrokes", "Coral", "Betfair", "Paddy Power", "Sky Bet", "BetVictor", "Unibet", 
@@ -16,10 +16,9 @@ const SignupPage = () => {
   const [signupData, setSignupData] = useState({
     name: "",
     email: "",
-    phone: "",
     riskAppetite: "",
     bookmakers: [],  // Multiple bookmakers selected by the user
-    verificationCode: "",
+    password: "",
   });
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [message, setMessage] = useState("");
@@ -29,30 +28,68 @@ const SignupPage = () => {
     setSignupData({ ...signupData, [name]: value });
   };
 
-  const handlePhoneChange = (phone: string) => {
-    setSignupData({ ...signupData, phone });
-  };
-
   const handleSelectChange = (keys: Set<string>) => {
     setSignupData({ ...signupData, bookmakers: Array.from(keys) });
   };
 
-  const handleSendCode = () => {
-    if (signupData.phone || signupData.email) {
-      setIsCodeSent(true);
-      setMessage("A 6-digit code has been sent to your email or phone.");
+  const handleSendCode = async () => {
+    if (signupData.email) {
+      window.localStorage.setItem("emailForSignIn", signupData.email); // Store email temporarily
+      const actionCodeSettings = {
+        url: `${window.location.origin}/signup/finish`,
+        handleCodeInApp: true,
+      };
+  
+      try {
+        await sendSignInLinkToEmail(auth, signupData.email, actionCodeSettings);
+        setIsCodeSent(true);
+        setMessage("A verification link has been sent to your email.");
+      } catch (error) {
+        console.error("Error sending verification email:", error); // Log error details
+        setMessage("Error sending verification email: " + error.message);
+      }
     } else {
-      setMessage("Please enter a valid email or phone number.");
+      setMessage("Please enter a valid email.");
     }
   };
+  
 
-  const handleVerifyCode = () => {
-    if (signupData.verificationCode.length === 6) {
-      setMessage("Sign up successful!");
-    } else {
-      setMessage("Please enter a valid 6-digit code.");
+  const handleVerifyCode = async () => {
+    try {
+        // Register user with email and password
+        const userCredential = await createUserWithEmailAndPassword(auth, signupData.email, signupData.password);
+        const { user } = userCredential;
+
+        // Prepare user profile data
+        const userProfileData = {
+            uid: user.uid,
+            name: signupData.name,
+            email: signupData.email,
+            phone: "", // Assuming phone is no longer needed
+            riskAppetite: signupData.riskAppetite,
+            bookmakers: signupData.bookmakers,
+        };
+
+        const response = await fetch('/api/saveUserProfile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userProfileData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            setMessage("Sign up successful! " + data.message);
+        } else {
+            setMessage("Error saving user profile: " + data.error);
+        }
+    } catch (error) {
+        setMessage("Error signing up: " + error.message);
     }
-  };
+};
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,6 +104,8 @@ const SignupPage = () => {
     <main className="min-h-screen bg-gray-100 p-12 flex justify-center items-center">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-6 text-center">Sign Up</h1>
+        {message && <p className="text-green-700 mt-2 bg-green-100 border-l-4 px-4 py-2 border-green-700 mb-6">{message}</p>}
+      
         <form onSubmit={handleSubmit} className="space-y-6">
 
           {/* Name */}
@@ -86,14 +125,17 @@ const SignupPage = () => {
             label="Email"
             value={signupData.email}
             onChange={handleInputChange}
+            required
           />
 
-          {/* Phone Number */}
-          <PhoneInput
-            country={"gb"}
-            value={signupData.phone}
-            onChange={handlePhoneChange}
-            inputProps={{ name: "phone", required: true }}
+          {/* Password */}
+          <Input
+            type="password"
+            name="password"
+            label="Password"
+            value={signupData.password}
+            onChange={handleInputChange}
+            required
           />
 
           {/* Risk Appetite (Optional) */}
@@ -117,25 +159,10 @@ const SignupPage = () => {
             ))}
           </Select>
 
-          {/* Verification Code Input (Visible after code is sent) */}
-          {isCodeSent && (
-            <Input
-              type="text"
-              name="verificationCode"
-              label="Enter the code"
-              value={signupData.verificationCode}
-              onChange={handleInputChange}
-              required
-              maxLength={6}
-            />
-          )}
-
           {/* Submit Button */}
           <Button type="submit">
-            {isCodeSent ? "Complete Sign Up" : "Send Verification Code"}
+            {isCodeSent ? "Complete Sign Up" : "Send Verification Link"}
           </Button>
-
-          {message && <p className="text-gray-700 mt-2">{message}</p>}
         </form>
       </div>
     </main>

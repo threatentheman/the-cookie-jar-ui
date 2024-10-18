@@ -16,6 +16,7 @@ import {
 } from "@nextui-org/react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import { parseDate } from "@internationalized/date";
+import classNames from "classnames";
 
 interface FixtureData {
   fixture_id: string;
@@ -33,6 +34,8 @@ export default function Fixtures() {
     null,
   ]);
   const [data, setData] = useState<FixtureData[]>([]);
+  const [sortKey, setSortKey] = useState<keyof FixtureData>("date");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const router = useRouter(); // Initialize router for navigation
 
   // Fetch the data from the JSON file
@@ -46,14 +49,17 @@ export default function Fixtures() {
     fetchData();
   }, [fetchData]);
 
-  const leagues = useMemo(
-    () => [...new Set(data.map((item) => item.league))],
-    [data]
-  );
+  // Generate a sorted list of unique leagues
+  const leagues = useMemo(() => {
+    const uniqueLeagues = [...new Set(data.map((item) => item.league))];
+    return uniqueLeagues.sort((a, b) => a.localeCompare(b)); // Sort leagues alphabetically
+  }, [data]);
 
+  // Generate a sorted list of unique teams
   const teams = useMemo(() => {
     const allTeams = data.flatMap((item) => [item.team_home, item.team_away]);
-    return [...new Set(allTeams)];
+    const uniqueTeams = [...new Set(allTeams)];
+    return uniqueTeams.sort((a, b) => a.localeCompare(b)); // Sort teams alphabetically
   }, [data]);
 
   const formatDate = (dateString: string) => {
@@ -64,6 +70,7 @@ export default function Fixtures() {
     return `${day}/${month}/${year}`;
   };
 
+  // Apply filters and sorting to the data
   const filteredItems = useMemo(() => {
     let filteredData = data;
 
@@ -94,6 +101,40 @@ export default function Fixtures() {
     return filteredData;
   }, [data, selectedLeagues, selectedTeams, dateRange]);
 
+  // Apply sorting to the filtered items
+  const sortedItems = useMemo(() => {
+    return [...filteredItems].sort((a, b) => {
+      const valueA = a[sortKey];
+      const valueB = b[sortKey];
+
+      if (sortKey === "date") {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+      }
+
+      if (typeof valueA === "string" && typeof valueB === "string") {
+        return sortOrder === "asc"
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA);
+      }
+
+      return 0;
+    });
+  }, [filteredItems, sortKey, sortOrder]);
+
+  // Handle sorting when a column header is clicked
+  const handleSort = (key: keyof FixtureData) => {
+    if (key === sortKey) {
+      // Toggle the sort order if the same column is clicked
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      // Set a new column to sort by, default to ascending order
+      setSortKey(key);
+      setSortOrder("asc");
+    }
+  };
+
   const handleLeagueChange = useCallback((keys: Set<string>) => {
     setSelectedLeagues(Array.from(keys));
   }, []);
@@ -116,6 +157,15 @@ export default function Fixtures() {
     // Navigate to the detailed fixture page
     router.push(`/fixtures/${fixtureId}`);
   };
+
+  // Determine if any filters are active
+  const areFiltersActive = useMemo(() => {
+    return (
+      selectedLeagues.length > 0 ||
+      selectedTeams.length > 0 ||
+      (dateRange[0] !== null && dateRange[1] !== null)
+    );
+  }, [selectedLeagues, selectedTeams, dateRange]);
 
   const renderClearableSelect = (
     selected: string[],
@@ -176,31 +226,52 @@ export default function Fixtures() {
             handleTeamChange
           )}
         </div>
-        <DateRangePicker
-          className="col-span-4"
-          value={dateRange}
-          onChange={handleDateChange}
-          defaultValue={{
-            end: parseDate(new Date().toISOString().split("T")[0]),
-          }}
-        />
+        <div className="col-span-4">
+          <DateRangePicker
+            label="Date range"
+            value={dateRange}
+            onChange={handleDateChange}
+            defaultValue={{
+              end: parseDate(new Date().toISOString().split("T")[0]),
+            }}
+          />
+        </div>
       </div>
 
-      <div className="mb-4">
-        <Button onClick={clearFilters} color="error" auto>
-          Clear All Filters
-        </Button>
+      {/** Animated clear filters button, shown only if filters are active **/}
+      <div className={classNames("transition-opacity duration-500", {
+        "opacity-100": areFiltersActive,
+        "opacity-0": !areFiltersActive,
+        "h-0 overflow-hidden": !areFiltersActive,
+      })}>
+        {areFiltersActive && (
+          <div className="mb-4 col-span-12">
+            <Button
+              className="w-full transition-transform transform hover:scale-105 duration-300"
+              onClick={clearFilters}
+              color="default"
+            >
+              Clear All Filters
+            </Button>
+          </div>
+        )}
       </div>
 
       <div className="flex-1 overflow-y-auto">
         <Table aria-label="Fixtures" bordered>
           <TableHeader>
-            <TableColumn>League</TableColumn>
-            <TableColumn>Fixture</TableColumn>
-            <TableColumn>Date</TableColumn>
+            <TableColumn onClick={() => handleSort("league")}>
+              League {sortKey === "league" && (sortOrder === "asc" ? "↑" : "↓")}
+            </TableColumn>
+            <TableColumn onClick={() => handleSort("team_home")}>
+              Fixture {sortKey === "team_home" && (sortOrder === "asc" ? "↑" : "↓")}
+            </TableColumn>
+            <TableColumn onClick={() => handleSort("date")}>
+              Date {sortKey === "date" && (sortOrder === "asc" ? "↑" : "↓")}
+            </TableColumn>
           </TableHeader>
           <TableBody>
-            {filteredItems.map((item) => (
+            {sortedItems.map((item) => (
               <TableRow
                 key={item.fixture_id}
                 className="cursor-pointer hover:bg-gray-100 transition-colors"
