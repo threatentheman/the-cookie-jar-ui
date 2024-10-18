@@ -1,15 +1,9 @@
 // lib/mongodb.ts
 import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URI as string; // MongoDB connection string
-const options = { useNewUrlParser: true, useUnifiedTopology: true };
-
+const uri = process.env.MONGODB_URI as string;
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
-
-declare global {
-    let _mongoClientPromise: Promise<MongoClient>;
-}
 
 if (!process.env.MONGODB_URI) {
     throw new Error('Please add your MongoDB URI to .env.local');
@@ -17,13 +11,12 @@ if (!process.env.MONGODB_URI) {
 
 if (process.env.NODE_ENV === 'development') {
     if (!global._mongoClientPromise) {
-        client = new MongoClient(uri, options);
+        client = new MongoClient(uri);  // Remove deprecated options
         global._mongoClientPromise = client.connect();
     }
     clientPromise = global._mongoClientPromise;
 } else {
-    // In production mode, it's best to not use a global variable.
-    client = new MongoClient(uri, options);
+    client = new MongoClient(uri);  // Remove deprecated options
     clientPromise = client.connect();
 }
 

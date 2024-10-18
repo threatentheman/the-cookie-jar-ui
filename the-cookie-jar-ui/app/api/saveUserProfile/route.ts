@@ -5,10 +5,11 @@ import clientPromise from '../../../lib/mongodb';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { uid, name, email, phone, riskAppetite, bookmakers } = body;
+    const { uid, name, email, riskAppetite, bookmakers } = body;
 
-    if (!uid) {
-      return NextResponse.json({ error: 'User ID (uid) is required' }, { status: 400 });
+    // Ensure the required fields are provided
+    if (!uid || !email) {
+      return NextResponse.json({ error: 'User ID (uid) and email are required' }, { status: 400 });
     }
 
     const client = await clientPromise;
@@ -18,15 +19,14 @@ export async function POST(req: NextRequest) {
       uid,
       name,
       email,
-      phone,
       riskAppetite,
       bookmakers,
       updatedAt: new Date(),
     };
 
-    // Upsert user data into the 'users' collection
-    await db.collection('users').updateOne(
-      { uid },
+    // Try to upsert the user profile based on the email (to prevent duplicate emails)
+    const result = await db.collection('users').updateOne(
+      { email },  // Use email to ensure uniqueness
       {
         $set: userData,
         $setOnInsert: { createdAt: new Date() },
@@ -36,6 +36,9 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ message: 'User data saved successfully!' }, { status: 200 });
   } catch (error) {
+    if (error.code === 11000) { // Duplicate email error (MongoDB error code for unique index violation)
+      return NextResponse.json({ error: 'Email already exists.' }, { status: 400 });
+    }
     console.error('Error saving user data:', error);
     return NextResponse.json({ error: 'Failed to save user data.' }, { status: 500 });
   }
