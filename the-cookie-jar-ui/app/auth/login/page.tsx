@@ -1,89 +1,83 @@
 // app/login/page.tsx
 "use client";
 
-import { useState } from "react";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { Input, Button, Spacer } from "@nextui-org/react";
+import React, { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { Input, Button } from "@nextui-org/react";
+import { useRouter } from "next/navigation";  // For redirecting after login
+import { auth } from "../../../lib/firebase";  // Firebase setup
+import { useAuth } from "../../../context/AuthContext";  // Access auth context
 
-export default function Login() {
-  const [phone, setPhone] = useState("");
-  const [step, setStep] = useState(1); // Step 1: phone input, Step 2: verification code
-  const [verificationCode, setVerificationCode] = useState("");
+const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [codeSent, setCodeSent] = useState(false); // Keeps track if a code was sent
+  const [loading, setLoading] = useState(false);
 
-  const handleSendCode = () => {
-    if (phone) {
-      // Simulate sending the code (replace this with your Firebase SMS logic)
-      console.log("Phone number submitted: ", phone);
-      setCodeSent(true);
-      setStep(2); // Move to step 2 (verification)
-      setMessage(`A 6-digit code has been sent to ${phone}`);
-    } else {
-      setMessage("Please enter a valid phone number.");
-    }
-  };
+  const router = useRouter();  // Use router for redirection
+  const { user } = useAuth();  // Check if the user is already logged in
 
-  const handleVerifyCode = () => {
-    if (verificationCode.length === 6) {
-      console.log("Code submitted:", verificationCode);
+  // If user is already logged in, redirect them to profile or another page
+  if (user) {
+    router.push("/");
+  }
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setMessage("");
+    setLoading(true);
+
+    try {
+      // Use Firebase auth to sign in
+      await signInWithEmailAndPassword(auth, email, password);
       setMessage("Login successful!");
-      // Add your logic for verifying the code with Firebase
-    } else {
-      setMessage("Please enter a valid 6-digit code.");
+      router.push("/profile");  // Redirect to profile or any other page
+    } catch (error) {
+      setMessage(`Login failed: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
-  };
-
-  const handleResendCode = () => {
-    // Simulate resending the code (replace with Firebase logic)
-    setMessage(`A new code has been sent to ${phone}`);
-    setCodeSent(true);
   };
 
   return (
-    <section className="items-center justify-center min-h-screen p-8 sm:p-20">
-      {message && <p className="border-l-2 pl-3 py-1 mb-10 bg-default-100 text-gray-700 text-sm">{message}</p>}
-      {step === 1 && (
-        <>
-          <h3 className="text-gray-700 pb-2">Login with Phone Number</h3>
-          <div className="pb-2 text-gray-700">
-            <PhoneInput
-              country={"gb"}
-              value={phone}
-              onChange={(phone) => setPhone(phone)}
-              inputProps={{
-                name: "phone",
-                required: true,
-                autoFocus: true,
-              }}
-            />
-          </div>
-          <Button onClick={handleSendCode}>Send Login Code</Button>
-        </>
-      )}
+    <section className="min-h-screen bg-gray-100 p-12 flex justify-center items-center">
+      <div className="bg-white rounded-lg p-8 w-full">
+        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+        {message && <p className="text-red-700 mb-4">{message}</p>}
 
-      {step === 2 && (
-        <>
-          <h3 className="text-gray-700 pb-2 mb-2">Enter your verification code</h3>
-          <div className="mb-4">
-            <Input
-              label="6-digit code"
-              value={verificationCode}
-              onChange={(e) => setVerificationCode(e.target.value)}
-              maxLength={6}
-              type="text"
-            />
-          </div>
+        <form onSubmit={handleLogin} className="space-y-6">
+          <Input
+            type="email"
+            name="email"
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-          <div className="flex gap-4">
-            <Button onClick={handleVerifyCode}>Verify Code</Button>
-            <Button onClick={handleResendCode}>
-              Resend Code
-            </Button>
-          </div>
-        </>
-      )}
+          <Input
+            type="password"
+            name="password"
+            label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          {/* Login Button */}
+          <Button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </Button>
+        </form>
+
+        <div className="mt-4 text-center">
+          <a href="/auth/forgotPassword" className="text-blue-500 underline">
+            Forgot your password?
+          </a>
+        </div>
+      </div>
     </section>
   );
-}
+};
+
+export default LoginPage;
